@@ -33,15 +33,23 @@ public class print {
         int f = a*fact(a-1);
         return f;
     }
-
+    public static int linearpow(int x,int a){
+        if (a==0){
+            return 1;
+        }
+        return x*linearpow(x,a-1);
+    }
+    
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
+        int x=2;
         decrease(a);
         increase(a);
         System.out.println();
         incdec(a);
         System.out.println(fact(a));
+        System.out.println(linearpow(x,a));
     }
 
 }
