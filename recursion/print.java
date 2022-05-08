@@ -39,17 +39,39 @@ public class print {
         }
         return x*linearpow(x,a-1);
     }
-    
+    public static int logppow(int x , int a){
+        if (a==1){
+            return x;
+        }
+
+        int ans = 2*logppow(x,a/2);
+        if (a%2!=0){
+            ans=ans*x;
+        }
+        return ans;
+    }
+    public static void toh(int n,char s,char d,char h){
+        if (n==1){
+            System.out.println(n+"["+s+"->"+d+"]");
+            return;
+        }
+        toh(n-1,s,h,d);
+        System.out.println(n+"["+s+"->"+d+"]");
+        toh(n-1,h,d,s);
+    }
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int x=2;
+        int n=3;
         decrease(a);
         increase(a);
         System.out.println();
         incdec(a);
         System.out.println(fact(a));
         System.out.println(linearpow(x,a));
+        System.out.println(logppow(x,a));
+        toh(n,'a','b','c');
     }
 
 }
